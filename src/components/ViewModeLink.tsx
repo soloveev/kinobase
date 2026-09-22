@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation';
  *  на него же — режим включается и снимается там, где стоишь.
  *
  *  Обычный `<a>`, а не `Link`: маршрут ставит куку и отвечает редиректом, клиентская
- *  навигация здесь не нужна — так же сделаны «Админка» и «Выйти». */
+ *  навигация здесь не нужна — так же сделан «Выйти». */
 export default function ViewModeLink({
   mode,
   className,
@@ -23,7 +23,7 @@ export default function ViewModeLink({
 
   return (
     <a href={`/owner/${route}?back=${encodeURIComponent(pathname)}`} className={className}>
-      {mode === 'guest' ? 'Посмотреть глазами гостя' : 'Вернуться в админский режим'}
+      {mode === 'guest' ? 'Посмотреть глазами гостя' : 'Вернуться к своему виду'}
     </a>
   );
 }

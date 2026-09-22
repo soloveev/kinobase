@@ -1025,7 +1025,7 @@ describe('страница персоналии: режим «глазами г�
   const ownerViewLink = (container: HTMLElement): HTMLElement | undefined =>
     within(container)
       .queryAllByRole('link')
-      .find((link) => /Вернуться в админский режим/i.test(link.textContent ?? ''));
+      .find((link) => /Вернуться к своему виду/i.test(link.textContent ?? ''));
 
   /** Самостоятельная пометка режима: элемент, чей собственный текст и есть «Глазами
    *  гостя». Искать вхождением нельзя — эта строка целиком лежит внутри подписи

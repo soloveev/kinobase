@@ -207,7 +207,7 @@ describe('SiteFooter: состав ссылок (критерий 1 версии
 // нечем; это работа живого прогона.
 
 const GUEST_VIEW_LABEL = /Посмотреть глазами гостя/i;
-const OWNER_VIEW_LABEL = /Вернуться в админский режим/i;
+const OWNER_VIEW_LABEL = /Вернуться к своему виду/i;
 
 // Правка 31.08.2026, конфликт критериев 24 и 25, найденный на имплементации.
 // Прежняя редакция проверки «пометки „Глазами гостя“ вне режима нет» искала подстроку:
@@ -281,7 +281,7 @@ describe('SiteFooter: подвал в режиме гостя (критерий 
     expect(modeMark(container), 'в подвале нет самостоятельной пометки режима').toBeDefined();
   });
 
-  it('несёт ссылку «Вернуться в админский режим»', () => {
+  it('несёт ссылку «Вернуться к своему виду»', () => {
     render(<SiteFooter owner={false} guestView={true} />);
 
     expect(screen.getByRole('link', { name: OWNER_VIEW_LABEL })).toBeInTheDocument();

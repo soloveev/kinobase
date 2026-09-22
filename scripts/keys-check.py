@@ -25,6 +25,13 @@ def visible(item: str) -> str:
     return re.sub(r'\*\*', '', item)
 
 
+if len(sys.argv) < 2:
+    print('Нужен файл с блоком ключей: npm run keys-check -- <файл.json>\n'
+          'Проверяются семь пунктов, объём блока, полужирный лид, отсутствие ссылок '
+          'и слов про приём. Правило — «Блок „Важные вещи о фильме“» в '
+          'research/DOSSIER-FORMAT.md.', file=sys.stderr)
+    sys.exit(2)
+
 bad_total = 0
 for path in sys.argv[1:]:
     d = json.load(io.open(path, encoding='utf-8'))

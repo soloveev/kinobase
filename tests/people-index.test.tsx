@@ -610,7 +610,7 @@ describe('указатель персоналий: режим «глазами �
     jar.guestView = true;
 
     const container = await renderIndex();
-    const back = named(container, /Вернуться в админский режим/i);
+    const back = named(container, /Вернуться к своему виду/i);
 
     expect(back).toBeDefined();
     expect((back!.getAttribute('href') ?? '').startsWith('/owner/owner-view')).toBe(true);

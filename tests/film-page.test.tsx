@@ -921,7 +921,7 @@ describe('карточка фильма: режим «глазами гостя�
     state.guestView = true;
 
     const container = await renderPage();
-    const back = named(container, /Вернуться в админский режим/i);
+    const back = named(container, /Вернуться к своему виду/i);
 
     expect(modeMark(container), 'в подвале нет пометки режима').toBeDefined();
     expect(back).toBeDefined();

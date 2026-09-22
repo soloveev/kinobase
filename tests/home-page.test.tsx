@@ -144,7 +144,7 @@ describe('главная: режим «глазами гостя» в подва
     jar.guestView = true;
 
     const container = await renderHome();
-    const back = named(container, /Вернуться в админский режим/i);
+    const back = named(container, /Вернуться к своему виду/i);
 
     expect(back).toBeDefined();
     expect((back!.getAttribute('href') ?? '').startsWith('/owner/owner-view')).toBe(true);
