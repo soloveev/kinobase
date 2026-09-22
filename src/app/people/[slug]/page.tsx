@@ -17,7 +17,7 @@ import { listFilms } from '@/lib/films-repo';
 import { formatPartialDateRu, pluralSources, pluralWorks } from '@/lib/format';
 import { countPeople, filmsOfPerson, getPersonBySlug } from '@/lib/people-repo';
 import { guestViewOn, viewerIsOwner } from '@/lib/session';
-import { pageMetadata } from '@/lib/site';
+import { pageMetadata, SITE_TITLE } from '@/lib/site';
 import { filmStatus, statusCounts, todayIso } from '@/lib/status';
 import { ambiguousTitles } from '@/lib/titles';
 import type { StatusFilter } from '@/lib/url-state';
@@ -31,7 +31,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const person = getPersonBySlug(getDb(), slug);
-  if (!person) return { title: 'Кино База' };
+  if (!person) return { title: SITE_TITLE };
 
   return pageMetadata({
     title: person.nameRu,

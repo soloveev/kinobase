@@ -22,7 +22,7 @@ import { countPeople, peopleOfFilm } from '@/lib/people-repo';
 import { ambiguousTitles, displayTitle } from '@/lib/titles';
 import { guestViewOn, viewerIsOwner } from '@/lib/session';
 import { fullPosterPath } from '@/lib/posters';
-import { pageMetadata } from '@/lib/site';
+import { pageMetadata, SITE_TITLE } from '@/lib/site';
 import { filmStatus, statusCounts, todayIso } from '@/lib/status';
 import type { StatusFilter } from '@/lib/url-state';
 
@@ -40,7 +40,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const film = findFilm(id);
-  if (!film) return { title: 'Кино База' };
+  if (!film) return { title: SITE_TITLE };
 
   // Заголовок несёт год по тому же правилу, что и заголовок самой страницы:
   // ссылка на «Призрака в доспехах», посланная в чат, должна говорить, на какого.

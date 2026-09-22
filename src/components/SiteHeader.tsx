@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import type { ReactNode } from 'react';
+import { SITE_TITLE } from '@/lib/site';
 
 /** Разделы сайта, живущие рядом с табами статусов, а не внутри них: табы — про отбор
  *  фильмов, а это другие страницы целиком. */
@@ -39,7 +40,7 @@ export default function SiteHeader({
           href="/"
           className="text-base font-extrabold uppercase tracking-[-0.01em] sm:text-lg"
         >
-          Кино База<span className="text-vermilion">.</span>
+          {SITE_TITLE}<span className="text-vermilion">.</span>
         </Link>
         <div className="flex flex-wrap items-center gap-x-4 gap-y-2">{nav}</div>
         {/* Растяжка живёт на обёртке, а не на пункте: пункт не должен отъезжать

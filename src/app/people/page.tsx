@@ -1,3 +1,4 @@
+import { SITE_TITLE } from '@/lib/site';
 import type { Metadata } from 'next';
 import FiltersDisclosure from '@/components/FiltersDisclosure';
 import PersonCell from '@/components/PersonCell';
@@ -13,7 +14,7 @@ import { parseRoles, type StatusFilter } from '@/lib/url-state';
 
 export const dynamic = 'force-dynamic';
 
-export const metadata: Metadata = { title: 'Персоналии — Кино База' };
+export const metadata: Metadata = { title: `Персоналии — ${SITE_TITLE}` };
 
 export default async function PeoplePage({
   searchParams,

@@ -1,3 +1,4 @@
+import { SITE_TITLE } from '@/lib/site';
 import Link from 'next/link';
 import AppliedBar from '@/components/AppliedBar';
 import FilmCell from '@/components/FilmCell';
@@ -91,7 +92,7 @@ export default async function Home({
 
       <main className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col px-5 pb-12 sm:px-8">
         <h1 className="sr-only">
-          Кино База — {status === 'all' ? 'все фильмы' : STATUS_LABELS[status].toLowerCase()}
+          {SITE_TITLE} — {status === 'all' ? 'все фильмы' : STATUS_LABELS[status].toLowerCase()}
         </h1>
 
         {all.length === 0 ? (
