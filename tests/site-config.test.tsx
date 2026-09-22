@@ -34,8 +34,10 @@
 // до имплементации. Значения конфига меняются между кейсами, а константы '@/lib/site'
 // и сами компоненты читают их один раз при загрузке модуля, поэтому свежее значение
 // требует и свежего модуля: между кейсами меняем поля мутируемого объекта, зовём
-// `vi.resetModules()` и импортируем модули заново динамическим `import()`. Дефолты
-// самого конфига (пункт 1) проверяются отдельно через `vi.importActual`, в обход мока.
+// `vi.resetModules()` и импортируем модули заново динамическим `import()`. Сам модуль
+// конфига (пункт 1) проверяется отдельно через `vi.importActual`, в обход мока, — но
+// только его форма, а не значения: файл правится онбордингом под владельца, и тест
+// на значения свежего клона красил бы прогон после честного онбординга (цикл 3).
 
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render, screen, cleanup } from '@testing-library/react';
@@ -104,16 +106,20 @@ function linkNamed(container: HTMLElement, pattern: RegExp): HTMLElement | undef
 // ---------------------------------------------------------------------------
 // Пункт 1: сам конфиг и то, что lib/site берёт значения из него.
 
-describe('siteConfig: дефолты (пункт 1)', () => {
-  it('пустой автор, без ссылки, локальный адрес, имя «Кино База»', async () => {
+describe('siteConfig: форма модуля (пункт 1)', () => {
+  it('title, url и description непустые строки, author строка, authorLink строка или null', async () => {
     const actual = await vi.importActual<{ siteConfig: SiteConfigShape }>('@/site.config');
+    const config = actual.siteConfig;
 
-    expect(actual.siteConfig.title).toBe('Кино База');
-    expect(actual.siteConfig.url).toBe('http://localhost:3000');
-    expect(actual.siteConfig.author).toBe('');
-    expect(actual.siteConfig.authorLink).toBeNull();
-    expect(typeof actual.siteConfig.description).toBe('string');
-    expect(actual.siteConfig.description.length).toBeGreaterThan(0);
+    expect(typeof config.title).toBe('string');
+    expect(config.title.length).toBeGreaterThan(0);
+    expect(() => new URL(config.url)).not.toThrow();
+    expect(typeof config.author).toBe('string');
+    expect(config.authorLink === null || typeof config.authorLink === 'string').toBe(true);
+    const link = config.authorLink;
+    if (link !== null) expect(() => new URL(link)).not.toThrow();
+    expect(typeof config.description).toBe('string');
+    expect(config.description.length).toBeGreaterThan(0);
   });
 });
 

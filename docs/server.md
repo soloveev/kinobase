@@ -101,9 +101,10 @@ chmod 700 /var/backups/kinobase
 
 ```bash
 install -m 600 -o root -g root /dev/null /etc/kinobase.env
-printf 'OWNER_TOKEN=%s\n' "$(openssl rand -hex 24)" > /etc/kinobase.env
-cat /etc/kinobase.env     # это же значение — в локальный .env.local
+printf 'OWNER_TOKEN=%s\n' "<значение OWNER_TOKEN из локального .env.local>" > /etc/kinobase.env
 ```
+
+Значение берётся из локального `.env.local` — онбординг уже сгенерировал его на первом заходе. Нового на сервере не выпускаем: токен один на оба места, и локальный — первичен. Если `.env.local` по какой-то причине без токена, сгенерировать `openssl rand -hex 24` и вписать в оба файла.
 
 Образец с пояснениями — `ops/kinobase.env.example`. С кодом этот файл не едет никогда: `deploy.sh` исключает из переноса всё, что начинается на `.env`.
 
@@ -264,7 +265,7 @@ cp deploy.env.example deploy.env
 Дальше:
 
 ```bash
-./deploy.sh              # dry-run: печатает, что изменится, и ничего не трогает
+./deploy.sh              # dry-run: ходит на сервер по ssh, печатает, что изменится, и ничего не трогает
 ./deploy.sh --go         # выкатка, спросит подтверждение с клавиатуры
 ./deploy.sh --go --yes   # без вопроса — для агента, у которого клавиатуры нет
 ```
