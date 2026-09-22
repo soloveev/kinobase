@@ -13,8 +13,9 @@
 Нужен Node 20 или новее: `better-sqlite3` собирается из исходников под вашу машину.
 
 ```bash
-npm install
+npm install             # на npm 11 предупреждение allow-scripts про fsevents — норма
 cp .env.example .env.local
+sed -i.bak "s/^OWNER_TOKEN=.*/OWNER_TOKEN=$(openssl rand -hex 24)/" .env.local && rm .env.local.bak
 npm run seed            # заводит базу data/kinobaza.db и заносит пять тайтлов со справкой и тегами
 npm run fill-dossiers   # докладывает к трём из них материалы агента
 npm run dev
