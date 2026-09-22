@@ -103,6 +103,10 @@ npm run dev
 | `npm run run-stats` | Считает заход по архивам и записям досье: страницы, факты, объём текста, источники |
 | `npm run archive-slugs` | Печатает соответствие «оригинальное название → имя папки архива» |
 
+## Windows
+
+Папка `.claude/skills` — символическая ссылка на `.agents/skills`: так скиллы видят и Claude Code, и другие агенты. Если система или клиент git ссылку не поддерживает, скопируйте `.agents/skills` в `.claude/skills` обычной копией.
+
 ## Структура репозитория
 
 | Путь | Что там |
@@ -128,7 +132,3 @@ npm run dev
 Код и скиллы — MIT, [LICENSE](LICENSE). Тексты правил в `research/` и демонстрационные досье в `content/` — CC BY 4.0, [LICENSE-CONTENT](LICENSE-CONTENT).
 
 Постеры принадлежат правообладателям и используются как иллюстрации к справке о фильме. Правила работы с ними — [docs/posters.md](docs/posters.md) и [research/LEGAL.md](research/LEGAL.md).
-
-## Windows
-
-Папка `.claude/skills` — символическая ссылка на `.agents/skills`: так скиллы видят и Claude Code, и другие агенты. Если система или клиент git ссылку не поддерживает, скопируйте `.agents/skills` в `.claude/skills` обычной копией.
