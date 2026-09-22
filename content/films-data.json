@@ -1,0 +1,170 @@
+[
+  {
+    "titleRu": "Одиссея",
+    "titleOriginal": "The Odyssey",
+    "posterPath": "/posters/odyssey.jpg",
+    "releaseDate": "2026-07-06",
+    "seasonsReleased": null,
+    "nextSeasonNumber": null,
+    "nextSeasonDate": null,
+    "imdbRating": 8.5,
+    "imdbId": "tt33764258",
+    "kinopoiskRating": 8.3,
+    "kinopoiskId": 6385370,
+    "annotation": "После Троянской войны Одиссей, царь Итаки, во главе небольшого войска возвращается домой к своей жене Пенелопе. На своём пути Одиссей сталкивается со множеством испытаний, встречает циклопов, сирен и великанов-людоедов.",
+    "director": "Кристофер Нолан",
+    "producer": "Эмма Томас",
+    "screenwriter": "Кристофер Нолан",
+    "soundDesigner": "Крейг Хениган",
+    "cast": [
+      "Мэтт Дэймон",
+      "Том Холланд",
+      "Энн Хэтэуэй",
+      "Зендея",
+      "Роберт Паттинсон",
+      "Шарлиз Терон"
+    ],
+    "tags": [
+      "film",
+      "live-action",
+      "action",
+      "adventure",
+      "fantasy",
+      "adaptation",
+      "visionary"
+    ],
+    "createdAt": "2026-08-22"
+  },
+  {
+    "titleRu": "Из машины",
+    "titleOriginal": "Ex Machina",
+    "posterPath": "/posters/ex-machina.jpg",
+    "releaseDate": "2015-01-21",
+    "seasonsReleased": null,
+    "nextSeasonNumber": null,
+    "nextSeasonDate": null,
+    "imdbRating": 7.7,
+    "imdbId": "tt0470752",
+    "kinopoiskRating": 7.1,
+    "kinopoiskId": 197532,
+    "annotation": "Молодого человека нанимает миллиардер, сделавший состояние на высокотехнологичных разработках. Задача нового сотрудника — провести неделю в отрезанном от цивилизации доме, тестируя женщину-робота с искусственным интеллектом.",
+    "director": "Алекс Гарленд",
+    "producer": "Эндрю Макдональд, Аллон Рич",
+    "screenwriter": "Алекс Гарленд",
+    "composer": "Бен Солсбери, Джефф Бэрроу",
+    "soundDesigner": "Гленн Фримантл",
+    "cast": [
+      "Донал Глисон",
+      "Алисия Викандер",
+      "Оскар Айзек",
+      "Соноя Мидзуно"
+    ],
+    "tags": [
+      "film",
+      "live-action",
+      "drama",
+      "sci-fi",
+      "thriller",
+      "auteur"
+    ],
+    "createdAt": "2026-08-28"
+  },
+  {
+    "titleRu": "Социальная расплата",
+    "titleOriginal": "The Social Reckoning",
+    "posterPath": "/posters/the-social-reckoning.jpg",
+    "releaseDate": "2026-10-09",
+    "seasonsReleased": null,
+    "nextSeasonNumber": null,
+    "nextSeasonDate": null,
+    "imdbRating": null,
+    "imdbId": "tt37510326",
+    "kinopoiskRating": null,
+    "kinopoiskId": 8883816,
+    "annotation": "Молодая сотрудница Facebook Фрэнсис Хауген заручается поддержкой журналиста «Уолл-стрит джорнал» Джеффа Хорвица и вместе с ним пускается в рискованный путь, который приводит к разоблачению самых охраняемых секретов социальной сети.",
+    "director": "Аарон Соркин",
+    "producer": "Стюарт М. Бессер, Тодд Блэк, Питер Райс",
+    "screenwriter": "Аарон Соркин",
+    "composer": "Александр Деспла",
+    "soundDesigner": "Джулиан Слейтер",
+    "cast": [
+      "Джереми Стронг",
+      "Билли Магнуссен",
+      "Майки Мэдисон",
+      "Бетти Гилпин",
+      "Джереми Аллен Уайт",
+      "Вунми Мосаку",
+      "Билл Бёрр"
+    ],
+    "tags": [
+      "film",
+      "live-action",
+      "thriller",
+      "drama",
+      "biography",
+      "true-story"
+    ],
+    "createdAt": "2026-09-06"
+  },
+  {
+    "titleRu": "Оглянись",
+    "titleOriginal": "Look Back",
+    "posterPath": "/posters/look-back.jpg",
+    "releaseDate": "2024-06-28",
+    "imdbRating": 7.8,
+    "imdbId": "tt31711040",
+    "kinopoiskRating": 7.6,
+    "kinopoiskId": 6046385,
+    "annotation": "Четвероклассница Фудзино рисует короткие комиксы для школьной газеты. Взрослые и одноклассники хвалят её талант, но однажды она видит работу ровесницы Кёмото, которая, хоть и не посещает школу, тоже рисует для этой же газеты. Поражённая её уровнем мастерства Фудзино решает научиться рисовать лучше.",
+    "director": "Киётака Осияма",
+    "producer": "Кадзуто Мацумура, Синъя Синодзаки, Рё Ояма",
+    "screenwriter": "Киётака Осияма, Тацуки Фудзимото",
+    "composer": "Харука Накамура",
+    "soundDesigner": null,
+    "cast": [
+      "Юми Каваи",
+      "Мидзуки Ёсида"
+    ],
+    "tags": [
+      "film",
+      "animation",
+      "drama",
+      "coming-of-age"
+    ],
+    "createdAt": "2026-09-15"
+  },
+  {
+    "titleRu": "Оборотень",
+    "titleOriginal": "Werwulf",
+    "posterPath": "/posters/werwulf.jpg",
+    "releaseDate": "2026-12-25",
+    "seasonsReleased": null,
+    "nextSeasonNumber": null,
+    "nextSeasonDate": null,
+    "imdbRating": null,
+    "imdbId": "tt35514120",
+    "kinopoiskRating": null,
+    "kinopoiskId": 7054211,
+    "annotation": "Англия XIV века. Деревню терзает зверь, а обычный фермер со своей семьёй оказывается в самом сердце этого проклятия.",
+    "director": "Роберт Эггерс",
+    "producer": "Тим Беван, Эрик Феллнер, Роберт Эггерс, Сьоун",
+    "screenwriter": "Роберт Эггерс, Сьоун",
+    "soundDesigner": null,
+    "cast": [
+      "Аарон Тейлор-Джонсон",
+      "Лили-Роуз Депп",
+      "Уиллем Дефо",
+      "Ралф Айнесон",
+      "Бодхи Рэй Бретнах",
+      "Джек Моррис"
+    ],
+    "tags": [
+      "film",
+      "live-action",
+      "horror",
+      "folk-horror",
+      "auteur"
+    ],
+    "createdAt": "2026-08-22"
+  }
+]

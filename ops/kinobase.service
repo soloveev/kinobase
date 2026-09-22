@@ -1,0 +1,57 @@
+# Кино База — служба systemd. Подробности и порядок установки — docs/server.md.
+#
+# Что подставить перед установкой:
+#   ${DEPLOY_USER}  — системный пользователь, под которым работает приложение.
+#                     По умолчанию kinobase. Это же имя захардкожено в deploy.sh
+#                     (шаг «chown -R kinobase:kinobase»), так что либо пользователь
+#                     называется kinobase, либо правится и deploy.sh.
+#   ${REMOTE_DIR}   — каталог с кодом на сервере, обычно /var/www/kinobase.
+#                     То же значение — в deploy.env.
+#   ${TZ}           — часовой пояс владельца, например Europe/Moscow. От него зависит,
+#                     какой день сайт считает «сегодня» в датах выхода и сезонах.
+#   -p 3001         — порт приложения. Тот же порт ждут nginx-хост и проверка в конце
+#                     deploy.sh; меняется он в трёх местах сразу или ни в одном.
+#
+# Установка:
+#   sed -e 's|${DEPLOY_USER}|kinobase|g' -e 's|${REMOTE_DIR}|/var/www/kinobase|g' \
+#       -e 's|${TZ}|Europe/Moscow|g' ops/kinobase.service \
+#     > /etc/systemd/system/kinobase.service
+#   systemctl daemon-reload && systemctl enable --now kinobase
+
+[Unit]
+Description=Kinobase (Next.js)
+After=network.target
+
+[Service]
+Type=simple
+User=${DEPLOY_USER}
+Group=${DEPLOY_USER}
+WorkingDirectory=${REMOTE_DIR}
+
+# DB_PATH указывает на базу вне каталога кода: она источник правды и выкаткой не заменяется.
+Environment=NODE_ENV=production TZ=${TZ} DB_PATH=/var/lib/kinobase/kinobaza.db
+# Секрет владельца лежит отдельно от кода и отдельно от юнита: с кодом он не едет,
+# в systemctl show его не видно случайным взглядом. Формат файла — KEY=VALUE.
+EnvironmentFile=/etc/kinobase.env
+
+# Путь к next.js вызывается напрямую, без npm: лишний процесс-обёртка мешает systemd
+# считать приложение остановленным и глотает сигналы.
+# -H 127.0.0.1 — приложение слушает только петлю, наружу смотрит nginx и только он.
+ExecStart=/usr/bin/node node_modules/next/dist/bin/next start -p 3001 -H 127.0.0.1
+
+Restart=always
+RestartSec=3
+
+# Ограничение памяти — страховка от аварии: процесс с утечкой убьёт себя,
+# а не соседей по серверу. 500 МБ хватает Next 16 на одноядерной машине.
+MemoryMax=500M
+
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+# Единственные каталоги, куда службе можно писать: база и кэш сборки Next.
+ReadWritePaths=/var/lib/kinobase ${REMOTE_DIR}/.next
+
+[Install]
+WantedBy=multi-user.target

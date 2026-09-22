@@ -1,0 +1,61 @@
+{
+  "name": "kinobase",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "db:generate": "drizzle-kit generate",
+    "seed": "tsx scripts/seed.ts",
+    "add-films": "tsx scripts/add-films.ts",
+    "tag-films": "tsx scripts/tag-films.ts",
+    "fill-seasons": "tsx scripts/fill-seasons.ts",
+    "fill-dossiers": "tsx scripts/fill-dossiers.ts",
+    "fill-people": "tsx scripts/fill-people.ts",
+    "check-data": "tsx scripts/check-data.ts",
+    "check-db": "tsx scripts/check-db.ts",
+    "refresh-films": "tsx scripts/refresh-films.ts",
+    "check-dossier": "tsx scripts/check-dossier.ts",
+    "check-dossier-one": "tsx scripts/check-dossier-one.ts",
+    "keys-check": "python3 scripts/keys-check.py",
+    "check-facts": "tsx scripts/check-facts.ts",
+    "run-stats": "tsx scripts/run-stats.ts",
+    "archive-slugs": "tsx scripts/archive-slugs.ts"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.3",
+    "drizzle-orm": "^0.45.2",
+    "next": "16.3.2",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@testing-library/jest-dom": "^7.0.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/better-sqlite3": "^9.6.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^6.1.0",
+    "drizzle-kit": "^0.31.10",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.2",
+    "jsdom": "^30.0.1",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.12",
+    "typescript": "^5",
+    "vitest": "^4.1.11"
+  },
+  "allowScripts": {
+    "esbuild@0.18.20": true,
+    "esbuild@0.25.12": true,
+    "esbuild@0.28.2": true,
+    "better-sqlite3@13.0.3": true,
+    "unrs-resolver@1.12.2": true
+  }
+}

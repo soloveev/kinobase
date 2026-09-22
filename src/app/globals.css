@@ -1,0 +1,106 @@
+/*
+DIRECTION CONTRACT — «Фестивальная программа»
+THESIS: личная база фильмов свёрстана как программа кинофестиваля одного зрителя
+в швейцарской плакатной типографике; отвергает тёмную постерную стену Letterboxd.
+OWN-WORLD: бумага #FAF9F6, чернила #171511, киноварь #D93A21, золото только у
+звёздочки; Golos Text в весах 400/800; hairline-линейки; прямые углы; плашки
+статусов: посмотрел — сплошная чернильная, буду смотреть — контурная,
+ждём — киноварная, другое — контурная на hairline. Хромировка — сквозные полосы
+во всю ширину на hairline-линейках, без оверлеев и выдвижных панелей; единственное
+исключение — полноэкранный просмотр постера.
+STORY: зритель открывает базу и сразу видит сетку; переключает секции статусов
+в шапке, по нужде раскрывает полосу фильтров; фильм читает как лист программы —
+справка и оценка сверху, чтение ниже.
+FIRST VIEWPORT: компактная шапка-полоса «Кино База» со статусной навигацией,
+счётчиками и кнопкой «Фильтры»; сразу под ней — модульная сетка постеров
+с фиксированными этикетками. Плакатного титула и строки издания нет.
+FORM: кандидат 7 собственного списка, назначен сидом b9f5412d; стейджинг —
+программа-лист, без имитации бумажной текстуры.
+*/
+
+@import "tailwindcss";
+
+:root {
+  --paper: #faf9f6;
+  --ink: #171511;
+  --ink-soft: #6b675e;
+  --hairline: #e3dfd5;
+  --vermilion: #d93a21;
+  --vermilion-deep: #ad2810;
+  --gold: #c89b3c;
+  /* Тёплая бумага справки-врезки: на полтона темнее листа, светлее hairline. */
+  --sand: #f3efe4;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-hairline: var(--hairline);
+  --color-vermilion: var(--vermilion);
+  --color-vermilion-deep: var(--vermilion-deep);
+  --color-gold: var(--gold);
+  --color-sand: var(--sand);
+  --font-sans: var(--font-golos), system-ui, sans-serif;
+  --font-serif: var(--font-pt-serif), Georgia, "Times New Roman", serif;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-golos), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--vermilion);
+  color: var(--paper);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
+input[type='checkbox'] {
+  accent-color: var(--ink);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ink-soft) var(--paper);
+}
+
+textarea {
+  caret-color: var(--vermilion);
+}
+
+/* Полноэкранный постер — единственный оверлей в проекте. Подложка плотная, чтобы
+   лист под ней не спорил с плакатом; страница на время просмотра не прокручивается. */
+dialog::backdrop {
+  background: color-mix(in oklab, var(--ink) 92%, transparent);
+}
+
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+@keyframes stamp {
+  from {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.stamp {
+  animation: stamp 0.25s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stamp {
+    animation: none;
+  }
+}
