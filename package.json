@@ -22,6 +22,9 @@
     "check-dossier": "tsx scripts/check-dossier.ts",
     "check-dossier-one": "tsx scripts/check-dossier-one.ts",
     "keys-check": "python3 scripts/keys-check.py",
+    "keys-extract": "python3 scripts/keys-extract.py",
+    "keys-archive": "python3 scripts/keys-archive.py",
+    "keys-merge": "python3 scripts/keys-merge.py",
     "check-facts": "tsx scripts/check-facts.ts",
     "run-stats": "tsx scripts/run-stats.ts",
     "archive-slugs": "tsx scripts/archive-slugs.ts"
